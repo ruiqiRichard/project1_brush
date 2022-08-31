@@ -1,2 +1,3 @@
 # Projects 1 & 2: Brush & Filter
-This is a placeholder readme.
+
+All project handouts can be found [here](https://browncsci1230.github.io/projects).
