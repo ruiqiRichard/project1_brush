@@ -36,7 +36,7 @@ private slots:
     void setBrushType(int type);
     void setFilterType(int type);
 
-    void setUCharVal(unsigned char &setValue, int newValue);
+    void setUIntVal(std::uint8_t &setValue, int newValue);
     void setIntVal(int &setValue, int newValue);
     void setFloatVal(float &setValue, float newValue);
     void setBoolVal(bool &setValue, bool newValue);

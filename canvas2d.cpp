@@ -44,7 +44,7 @@ bool Canvas2D::loadImageFromFile(const QString &file) {
     m_data.clear();
     m_data.reserve(m_width * m_height);
     for (int i = 0; i < arr.size() / 4.f; i++){
-        m_data.push_back(RGBA{(unsigned char) arr[4*i], (unsigned char) arr[4*i+1], (unsigned char) arr[4*i+2], (unsigned char) arr[4*i+3]});
+        m_data.push_back(RGBA{(std::uint8_t) arr[4*i], (std::uint8_t) arr[4*i+1], (std::uint8_t) arr[4*i+2], (std::uint8_t) arr[4*i+3]});
     }
     displayImage();
     return true;

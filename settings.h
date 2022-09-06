@@ -31,7 +31,7 @@ enum FilterType {
     FILTER_SCALE,
     FILTER_MEDIAN,
     FILTER_CHROMATIC,
-    FILTER_LEVEL,
+    FILTER_MAPPING,
     FILTER_ROTATION,
     FILTER_BILATERAL,
     NUM_FILTER_TYPES
@@ -67,6 +67,8 @@ struct Settings {
     float lambda_1;                 // Chromatic aberration labmda 1 (extra credit)
     float lambda_2;                 // Chromatic aberration labmda 2 (extra credit)
     float lambda_3;                 // Chromatic aberration labmda 3 (extra credit)
+    bool nonLinearMap;              // Use non-linear mapping function for tone mapping (extra credit)
+    float gamma;                    // Gamma for tone mapping (extra credit)
 
     QString imagePath;
 

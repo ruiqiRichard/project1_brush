@@ -1,12 +1,10 @@
-#ifndef RGBA_H
-#define RGBA_H
+#pragma once
 
-// struct for storing a color using values [0, 255]
+#include <cstdint>
+
 struct RGBA {
-    unsigned char r;
-    unsigned char g;
-    unsigned char b;
-    unsigned char a = 255;
+    std::uint8_t r;
+    std::uint8_t g;
+    std::uint8_t b;
+    std::uint8_t a = 255;
 };
-
-#endif // RGBA_H

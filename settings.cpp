@@ -44,6 +44,8 @@ void Settings::loadSettingsOrDefaults() {
     lambda_1 = s.value("lambda 1", 1e-7).toFloat();
     lambda_2 = s.value("lambda 1", 5e-7).toFloat();
     lambda_3 = s.value("lambda 1", 1e-6).toFloat();
+    nonLinearMap = s.value("nonLinearMap", false).toBool();
+    gamma = s.value("gamma", 0.1).toFloat();
 
     imagePath = s.value("imagePath", "").toString();
 }
@@ -75,6 +77,8 @@ void Settings::saveSettings() {
     s.setValue("lambda 1", lambda_1);
     s.setValue("lambda 2", lambda_2);
     s.setValue("lambda 3", lambda_3);
+    s.setValue("nonLinearMap", nonLinearMap);
+    s.setValue("gamma", gamma);
 
     s.setValue("imagePath", imagePath);
 }

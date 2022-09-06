@@ -16,12 +16,13 @@ public:
     void clearCanvas();
     bool loadImageFromFile(const QString &file);
     void displayImage();
-
-    // Filter TODO: implement
-    void filterImage();
+    void resize(int w, int h);
 
     // This will be called when the settings have changed
     void settingsChanged();
+
+    // Filter TODO: implement
+    void filterImage();
 
 private:
     std::vector<RGBA> m_data;
@@ -29,8 +30,6 @@ private:
     void mouseDown(int x, int y);
     void mouseDragged(int x, int y);
     void mouseUp(int x, int y);
-
-    void resize(int w, int h);
 
     // These are functions overriden from QWidget that we've provided
     // to prevent you from having to interact with Qt's mouse events.

@@ -60,10 +60,10 @@ MainWindow::MainWindow()
     addRadioButton(brushLayout, "Smudge", settings.brushType == BRUSH_SMUDGE, [this]{ setBrushType(BRUSH_SMUDGE); });
 
     // brush parameters
-    addSpinBox(brushLayout, "red", 0, 255, 1, settings.brushColor.r, [this](int value){ setUCharVal(settings.brushColor.r, value); });
-    addSpinBox(brushLayout, "green", 0, 255, 1, settings.brushColor.g, [this](int value){ setUCharVal(settings.brushColor.g, value); });
-    addSpinBox(brushLayout, "blue", 0, 255, 1, settings.brushColor.b, [this](int value){ setUCharVal(settings.brushColor.b, value); });
-    addSpinBox(brushLayout, "alpha", 0, 255, 1, settings.brushColor.a, [this](int value){ setUCharVal(settings.brushColor.a, value); });
+    addSpinBox(brushLayout, "red", 0, 255, 1, settings.brushColor.r, [this](int value){ setUIntVal(settings.brushColor.r, value); });
+    addSpinBox(brushLayout, "green", 0, 255, 1, settings.brushColor.g, [this](int value){ setUIntVal(settings.brushColor.g, value); });
+    addSpinBox(brushLayout, "blue", 0, 255, 1, settings.brushColor.b, [this](int value){ setUIntVal(settings.brushColor.b, value); });
+    addSpinBox(brushLayout, "alpha", 0, 255, 1, settings.brushColor.a, [this](int value){ setUIntVal(settings.brushColor.a, value); });
     addSpinBox(brushLayout, "radius", 1, 100, 1, settings.brushRadius, [this](int value){ setIntVal(settings.brushRadius, value); });
 
     // extra credit brushes
@@ -88,7 +88,7 @@ MainWindow::MainWindow()
 
     addRadioButton(filterLayout, "Scale", settings.filterType == FILTER_SCALE, [this]{ setFilterType(FILTER_SCALE); });
     addDoubleSpinBox(filterLayout, "x", 0.1, 10, 0.1, settings.scaleX, 2, [this](float value){ setFloatVal(settings.scaleX, value); });
-    addDoubleSpinBox(filterLayout, "y", 0.1, 10, 0.1, settings.scaleY, 2, [this](float value){ setFloatVal(settings.scaleX, value); });
+    addDoubleSpinBox(filterLayout, "y", 0.1, 10, 0.1, settings.scaleY, 2, [this](float value){ setFloatVal(settings.scaleY, value); });
 
     // extra credit filters
     addHeading(filterLayout, "Extra Credit Filters");
@@ -100,7 +100,9 @@ MainWindow::MainWindow()
     addDoubleSpinBox(filterLayout, "lambda 2", 1e-7, 1e-5, 1e-7, settings.lambda_2, 8, [this](float value){ setFloatVal(settings.lambda_2, value); });
     addDoubleSpinBox(filterLayout, "lambda 3", 1e-7, 1e-5, 1e-7, settings.lambda_3, 8, [this](float value){ setFloatVal(settings.lambda_3, value); });
 
-    addRadioButton(filterLayout, "Auto level", settings.filterType == FILTER_LEVEL,  [this]{ setFilterType(FILTER_LEVEL); });
+    addRadioButton(filterLayout, "Tone mapping", settings.filterType == FILTER_MAPPING,  [this]{ setFilterType(FILTER_MAPPING); });
+    addCheckBox(filterLayout, "Non linear function", settings.nonLinearMap, [this](bool value){ setBoolVal(settings.nonLinearMap, value); });
+    addDoubleSpinBox(filterLayout, "gamma", 0.1, 2, 0.1, settings.gamma, 2, [this](float value){ setFloatVal(settings.gamma, value); });
 
     addRadioButton(filterLayout, "Rotation", settings.filterType == FILTER_ROTATION,  [this]{ setFilterType(FILTER_ROTATION); });
     addDoubleSpinBox(filterLayout, "angle", -360, 360, 0.1, settings.rotationAngle, 2, [this](float value){ setFloatVal(settings.rotationAngle, value); });
@@ -188,6 +190,7 @@ void MainWindow::addPushButton(QBoxLayout *layout, QString text, auto function) 
 
 void MainWindow::addCheckBox(QBoxLayout *layout, QString text, bool val, auto function) {
     QCheckBox *box = new QCheckBox(text);
+    box->setChecked(val);
     layout->addWidget(box);
     connect(box, &QCheckBox::clicked, this, function);
 }
@@ -206,7 +209,7 @@ void MainWindow::setFilterType(int type) {
     m_canvas->settingsChanged();
 }
 
-void MainWindow::setUCharVal(unsigned char &setValue, int newValue) {
+void MainWindow::setUIntVal(std::uint8_t &setValue, int newValue) {
     setValue = newValue;
     m_canvas->settingsChanged();
 }
@@ -230,6 +233,7 @@ void MainWindow::setBoolVal(bool &setValue, bool newValue) {
 // ------ PUSH BUTTON FUNCTIONS ------
 
 void MainWindow::onClearButtonClick() {
+    m_canvas->resize(m_canvas->parentWidget()->size().width(), m_canvas->parentWidget()->size().height());
     m_canvas->clearCanvas();
 }
 
