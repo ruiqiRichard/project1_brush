@@ -18,9 +18,9 @@ enum BrushType {
     BRUSH_QUADRATIC,
     BRUSH_SMUDGE,
     BRUSH_SPRAY,
-    BRUSH_ANGLE,
     BRUSH_SPEED,
     BRUSH_FILL,
+    BRUSH_CUSTOM,
     NUM_BRUSH_TYPES
 };
 

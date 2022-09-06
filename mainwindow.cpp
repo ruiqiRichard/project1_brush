@@ -27,11 +27,12 @@ MainWindow::MainWindow()
     setLayout(hLayout);
 
     setupCanvas2D();
+    resize(800, 600);
 
     // makes the canvas into a scroll area
     QScrollArea *scrollArea = new QScrollArea();
-    scrollArea->resize(500, 500);
     scrollArea->setWidget(m_canvas);
+    scrollArea->setWidgetResizable(true);
     hLayout->addWidget(scrollArea, 1);
 
     // groupings by project
@@ -45,12 +46,15 @@ MainWindow::MainWindow()
     filterLayout->setAlignment(Qt::AlignTop);
     filterGroup->setLayout(filterLayout);
 
+    QScrollArea *controlsScroll = new QScrollArea();
     QTabWidget *tabs = new QTabWidget();
+    controlsScroll->setWidget(tabs);
+    controlsScroll->setWidgetResizable(true);
 
     tabs->addTab(brushGroup, "Brush");
     tabs->addTab(filterGroup, "Filter");
 
-    vLayout->addWidget(tabs);
+    vLayout->addWidget(controlsScroll);
 
     // brush selection
     addHeading(brushLayout, "Brush");
@@ -64,7 +68,7 @@ MainWindow::MainWindow()
     addSpinBox(brushLayout, "green", 0, 255, 1, settings.brushColor.g, [this](int value){ setUIntVal(settings.brushColor.g, value); });
     addSpinBox(brushLayout, "blue", 0, 255, 1, settings.brushColor.b, [this](int value){ setUIntVal(settings.brushColor.b, value); });
     addSpinBox(brushLayout, "alpha", 0, 255, 1, settings.brushColor.a, [this](int value){ setUIntVal(settings.brushColor.a, value); });
-    addSpinBox(brushLayout, "radius", 1, 100, 1, settings.brushRadius, [this](int value){ setIntVal(settings.brushRadius, value); });
+    addSpinBox(brushLayout, "radius", 0, 100, 1, settings.brushRadius, [this](int value){ setIntVal(settings.brushRadius, value); });
 
     // extra credit brushes
     addHeading(brushLayout, "Extra Credit Brushes");
@@ -72,7 +76,7 @@ MainWindow::MainWindow()
     addSpinBox(brushLayout, "density", 1, 100, 1, settings.brushDensity, [this](int value){ setIntVal(settings.brushDensity, value); });
     addRadioButton(brushLayout, "Speed", settings.brushType == BRUSH_SPEED, [this]{ setBrushType(BRUSH_SPEED); });
     addRadioButton(brushLayout, "Fill", settings.brushType == BRUSH_FILL, [this]{ setBrushType(BRUSH_FILL); });
-    addRadioButton(brushLayout, "Angle", settings.brushType == BRUSH_ANGLE, [this]{ setBrushType(BRUSH_ANGLE); });
+    addRadioButton(brushLayout, "Custom", settings.brushType == BRUSH_CUSTOM, [this]{ setBrushType(BRUSH_CUSTOM); });
     addCheckBox(brushLayout, "Fix alpha blending", settings.fixAlphaBlending, [this](bool value){ setBoolVal(settings.fixAlphaBlending, value); });
 
     // clearing canvas
@@ -84,7 +88,7 @@ MainWindow::MainWindow()
     addDoubleSpinBox(filterLayout, "sensitivity", 0.01, 1, 0.01, settings.edgeDetectSensitivity, 2, [this](float value){ setFloatVal(settings.edgeDetectSensitivity, value); });
 
     addRadioButton(filterLayout, "Blur", settings.filterType == FILTER_BLUR, [this]{ setFilterType(FILTER_BLUR); });
-    addSpinBox(filterLayout, "radius", 1, 100, 1, settings.blurRadius, [this](int value){ setIntVal(settings.blurRadius, value); });
+    addSpinBox(filterLayout, "radius", 0, 100, 1, settings.blurRadius, [this](int value){ setIntVal(settings.blurRadius, value); });
 
     addRadioButton(filterLayout, "Scale", settings.filterType == FILTER_SCALE, [this]{ setFilterType(FILTER_SCALE); });
     addDoubleSpinBox(filterLayout, "x", 0.1, 10, 0.1, settings.scaleX, 2, [this](float value){ setFloatVal(settings.scaleX, value); });
@@ -109,7 +113,6 @@ MainWindow::MainWindow()
 
     addRadioButton(filterLayout, "Bilteral smooth", settings.filterType == FILTER_BILATERAL,  [this]{ setFilterType(FILTER_BILATERAL); });
     addSpinBox(filterLayout, "radius", 1, 100, 1, settings.bilateralRadius, [this](int value){ setIntVal(settings.bilateralRadius, value); });
-
 
     // filter push buttons
     addPushButton(filterLayout, "Load Image", &MainWindow::onUploadButtonClick);

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 # Sets project name
-project(2dprojects LANGUAGES CXX C)
+project(projects_2d LANGUAGES CXX C)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOUIC ON)
@@ -35,7 +35,7 @@ add_executable(${PROJECT_NAME}
   rgba.h
 )
 
-# Specifies libraries to be linked (Qt components, glew, glm, etc)
+# Specifies libraries to be linked (Qt components, glew, etc)
 target_link_libraries(${PROJECT_NAME} PRIVATE
   Qt::Core
   Qt::Widgets
