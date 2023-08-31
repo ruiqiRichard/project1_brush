@@ -73,7 +73,7 @@ MainWindow::MainWindow()
     // extra credit brushes
     addHeading(brushLayout, "Extra Credit Brushes");
     addRadioButton(brushLayout, "Spray", settings.brushType == BRUSH_SPRAY, [this]{ setBrushType(BRUSH_SPRAY); });
-    addSpinBox(brushLayout, "density", 1, 100, 1, settings.brushDensity, [this](int value){ setIntVal(settings.brushDensity, value); });
+    addSpinBox(brushLayout, "density", 0, 100, 1, settings.brushDensity, [this](int value){ setIntVal(settings.brushDensity, value); });
     addRadioButton(brushLayout, "Speed", settings.brushType == BRUSH_SPEED, [this]{ setBrushType(BRUSH_SPEED); });
     addRadioButton(brushLayout, "Fill", settings.brushType == BRUSH_FILL, [this]{ setBrushType(BRUSH_FILL); });
     addRadioButton(brushLayout, "Custom", settings.brushType == BRUSH_CUSTOM, [this]{ setBrushType(BRUSH_CUSTOM); });

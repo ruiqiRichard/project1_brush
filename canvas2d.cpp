@@ -9,6 +9,7 @@
  * @brief Initializes new 500x500 canvas
  */
 void Canvas2D::init() {
+    setMouseTracking(true);
     m_width = 500;
     m_height = 500;
     clearCanvas();
