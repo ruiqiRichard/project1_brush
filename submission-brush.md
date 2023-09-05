@@ -17,7 +17,6 @@ This is how you will demonstrate the functionality of your project. For each of 
 | Canvas Edge Behavior |  ![expected_outputs/brush/canvas_edge_behavior.mp4](expected_outputs/brush/canvas_edge_behavior.mp4) | ![Place canvas_edge_behavior.mp4 in student_outputs/brush](student_outputs/brush/canvas_edge_behavior.mp4) | With any brush, click **outside** of the canvas in a place where the radius of the brush would normally extend to a location on the canvas and ensure that no color is drawn. Then, start drawing on the canvas and drag your mouse off of the edge. |
 | Alpha | ![expected_outputs/brush/alpha.mp4](expected_outputs/brush/alpha.mp4) | ![Place alpha.mp4 in student_outputs/brush](student_outputs/brush/alpha.mp4) | With the constant brush, draw a single dot of red (255, 0, 0) with an alpha of 255. Then, draw over it with a single dot of blue (0, 0, 255) with an alpha of 100. You should get a purpleish color. |
 | Alpha of Zero | ![expected_outputs/brush/alpha_zero.mp4](expected_outputs/brush/alpha_zero.mp4) | ![Place alpha_zero.mp4 in student_outputs/brush](student_outputs/brush/alpha_zero.mp4) | Choose any brush and demonstrate that it will not draw if the alpha value is zero. |
-| | | |
 
 ## Design Choices
 
