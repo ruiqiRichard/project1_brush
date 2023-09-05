@@ -3,22 +3,19 @@
 Please fill this out for Brush only. The project handout can be found [here](https://cs1230.graphics/projects/raster/1).
 
 ## Output Comparison
-Run the program with the specified `.ini` file to compare your output (it should automatically save to the correct path).
+This is how you will demonstrate the functionality of your project. For each of the rows below, follow the instructions to record a video in mp4 format. Please reference the [Screen Recording Guide](https://cs1230.graphics/docs/screen-recording/) for machine-specific guidance on how to do this. Then, rename the recording to the indicated name in column 3 and place it in the indicated folder so that it will show up in the README. We're not looking for your video to **exactly** match the expected output (i.e. draw the exact same shape). Just make sure to follow the instructions and verify that the recording fully demonstrates the functionality of that part of your project.
 
-> Note: once all images are filled in, the images will be the same size in the expected and student outputs.
-
-| Category | Expected Output | Your Output |
+| Category | Expected Output | Your Output | Instructions |
 | :---------------------------------------: | :--------------------------------------------------: | :-------------------------------------------------: | 
-| Constant Brush |  ![expected_outputs/point_light_1.png](expected_outputs/point_light_1.png) | ![Place point_light_1.png in student_outputs folder](student_outputs/point_light_1.png) |
-|  |  ![expected_outputs/point_light_2.png](expected_outputs/point_light_2.png) | ![Place point_light_2.png in student_outputs folder](student_outputs/point_light_2.png) |
-| Linear Brush |  ![expected_outputs/spot_light_1.png](expected_outputs/spot_light_1.png) | ![Place spot_light_1.png in student_outputs folder](student_outputs/spot_light_1.png) |
-| Quadratic Brush |  ![expected_outputs/spot_light_2.png](expected_outputs/spot_light_2.png) | ![Place spot_light_2.png in student_outputs folder](student_outputs/spot_light_2.png) |
-| Smudge Brush |  ![expected_outputs/texture_cone2.png](expected_outputs/texture_cone2.png) | ![Place texture_cone2.png in student_outputs folder](student_outputs/texture_cone2.png) |
-| Smudge Brush Change in Alpha |  ![expected_outputs/texture_cube.png](expected_outputs/texture_cube.png) | ![Place texture_cube.png in student_outputs folder](student_outputs/texture_cube.png) |
-| Radius |  ![expected_outputs/texture_cube2.png](expected_outputs/texture_cube2.png) | ![Place texture_cube2.png in student_outputs folder](student_outputs/texture_cube2.png) |
-| Color |  ![expected_outputs/texture_cyl.png](expected_outputs/texture_cyl.png) | ![Place texture_cyl.png in student_outputs folder](student_outputs/texture_cyl.png) |
-| Canvas Edge Behavior |  ![expected_outputs/texture_cyl2.png](expected_outputs/texture_cyl2.png) | ![Place texture_cyl2.png in student_outputs folder](student_outputs/texture_cyl2.png) |
-| texture_sphere2.ini |  ![expected_outputs/texture_sphere2.png](expected_outputs/texture_sphere2.png) | ![Place texture_sphere2.png in student_outputs folder](student_outputs/texture_sphere2.png) |
+| Constant Brush |  ![expected_outputs/brush/constant.mp4](expected_outputs/brush/constant.mp4) | ![Place constant.mp4 in student_outputs/brush](student_outputs/brush/constant.mp4) | Draw with the constant brush. |
+| Linear Brush |  ![expected_outputs/brush/linear.mp4](expected_outputs/brush/linear.mp4) | ![Place linear.mp4 in student_outputs/brush](student_outputs/brush/linear.mp4) | Draw with the linear brush. |
+| Quadratic Brush |  ![expected_outputs/brush/quadratic.mp4](expected_outputs/brush/quadratic.mp4) | ![Place quadratic.mp4 in student_outputs/brush](student_outputs/brush/quadratic.mp4) | Draw with the quadratic brush. |
+| Smudge Brush |  ![expected_outputs/brush/smudge.mp4](expected_outputs/brush/smudge) | ![Place smudge.mp4 in student_outputsbrush](student_outputs/brush/smudge.mp4) | Draw some colors on the canvas and use the smudge brush to smear them together. |
+| Smudge Brush Change in Alpha |  ![expected_outputs/brush/smudge_change_in_alpha.mp4](expected_outputs/brush/smudge_change_in_alpha.mp4) | ![Place smudge_change_in_alpha.mp4 in student_outputs/brush](student_outputs/brush/smudge_change_in_alpha.mp4) | Draw some colors on the canvas. Use the smudge brush with varying alpha levels (use at least three) and demonstrate that the brush still works the same way each time. |
+| Radius |  ![expected_outputs/brush/radius.mp4](expected_outputs/brush/radius.mp4) | ![Place radius.mp4 in student_outputs/brush](student_outputs/texture_cube2.png) | Use any brush with at least 3 different values for the radius. |
+| Color |  ![expected_outputs/brush/color.mp4](expected_outputs/brush/color.mp4) | ![Place color.mp4 in student_outputs/brush](student_outputs/brush/color.mp4) | Use any brush to draw red (255, 0, 0), green (0, 255, 0), and blue (0, 0, 255). Also, draw with a different color where at least two of the red, green, and blue channels do not equal 0. |
+| Canvas Edge Behavior |  ![expected_outputs/brush/canvas_edge_behavior.mp4](expected_outputs/brush/canvas_edge_behavior.mp4) | ![Place canvas_edge_behavior.mp4 in student_outputs/brush](student_outputs/brush/canvas_edge_behavior.mp4) | With any brush, click **outside** of the canvas in a place where the radius of the brush would normally extend to a location on the canvas and ensure that no color is drawn. Then, start drawing on the canvas and drag your mouse off of the edge. |
+| Alpha | ![expected_outputs/brush/alpha.mp4](expected_outputs/brush/alpha.mp4) | ![Place alpha.mp4 in student_outputs/brush](student_outputs/brush/alpha.mp4) | With the constant brush, draw a single dot of red (255, 0, 0) with an alpha of 255. Then, draw over it with a single dot of blue (0, 0, 255) with an alpha of 100. You should get a purpleish color. Lastly, demonstrate that a brush will not draw if the alpha value is 0. |
 | | | |
 
 ## Design Choices
