@@ -3,10 +3,10 @@
 Please fill this out for Brush only. The project handout can be found [here](https://cs1230.graphics/projects/raster/1).
 
 ## Output Comparison
-This is how you will demonstrate the functionality of your project. For each of the rows below, follow the instructions to record a video in mp4 format. Please reference the [Screen Recording Guide](https://cs1230.graphics/docs/screen-recording/) for machine-specific guidance on how to do this. Then, rename the recording to the indicated name in column 3 and place it in the indicated folder so that it will show up in the README. We're not looking for your video to **exactly** match the expected output (i.e. draw the exact same shape). Just make sure to follow the instructions and verify that the recording fully demonstrates the functionality of that part of your project.
+This is how you will demonstrate the functionality of your project. For each of the rows below, follow the instructions to record a video in mp4 format. Please reference the [Screen Recording Guide](https://cs1230.graphics/docs/screen-recording/) for machine-specific guidance on how to do this. Then, rename the recording to the indicated name in column 3 and place it in the indicated folder so that it will show up in the README. We're **not** looking for your video to **exactly** match the expected output (i.e. draw the exact same shape). Just make sure to follow the instructions and verify that the recording fully demonstrates the functionality of that part of your project.
 
 | Category | Expected Output | Your Output | Instructions |
-| :---------------------------------------: | :--------------------------------------------------: | :-------------------------------------------------: | 
+| :------------------------: | :--------------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------: | 
 | Constant Brush |  ![expected_outputs/brush/constant.mp4](expected_outputs/brush/constant.mp4) | ![Place constant.mp4 in student_outputs/brush](student_outputs/brush/constant.mp4) | Draw with the constant brush. |
 | Linear Brush |  ![expected_outputs/brush/linear.mp4](expected_outputs/brush/linear.mp4) | ![Place linear.mp4 in student_outputs/brush](student_outputs/brush/linear.mp4) | Draw with the linear brush. |
 | Quadratic Brush |  ![expected_outputs/brush/quadratic.mp4](expected_outputs/brush/quadratic.mp4) | ![Place quadratic.mp4 in student_outputs/brush](student_outputs/brush/quadratic.mp4) | Draw with the quadratic brush. |
