@@ -7,7 +7,7 @@ This is how you will demonstrate the functionality of your project. For each of 
 
 | Category | Expected Output | Your Output | Instructions |
 | :------------------------: | :--------------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------: | 
-| Constant Brush |   https://github.com/BrownCSCI1230/projects_raster_template/assets/77859770/79c4e747-e219-4c53-bdfe-1b9610c8c263    | ![Place constant.mp4 in student_outputs/brush](student_outputs/brush/constant.mp4) | Draw with the constant brush. |
+| Constant Brush |  ![expected_outputs/brush/constant.mp4](expected_outputs/brush/constant.mp4) | ![Place constant.mp4 in student_outputs/brush](student_outputs/brush/constant.mp4) | Draw with the constant brush. |
 | Linear Brush |  ![expected_outputs/brush/linear.mp4](expected_outputs/brush/linear.mp4) | ![Place linear.mp4 in student_outputs/brush](student_outputs/brush/linear.mp4) | Draw with the linear brush. |
 | Quadratic Brush |  ![expected_outputs/brush/quadratic.mp4](expected_outputs/brush/quadratic.mp4) | ![Place quadratic.mp4 in student_outputs/brush](student_outputs/brush/quadratic.mp4) | Draw with the quadratic brush. |
 | Smudge Brush |  ![expected_outputs/brush/smudge.mp4](expected_outputs/brush/smudge) | ![Place smudge.mp4 in student_outputsbrush](student_outputs/brush/smudge.mp4) | Draw some colors on the canvas and use the smudge brush to smear them together. |
@@ -25,4 +25,5 @@ This is how you will demonstrate the functionality of your project. For each of 
 ## Known Bugs
 
 ## Extra Credit
+
 
