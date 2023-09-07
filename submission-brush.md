@@ -3,7 +3,11 @@
 Please fill this out for Brush only. The project handout can be found [here](https://cs1230.graphics/projects/raster/1).
 
 ## Output Comparison
-This is how you will demonstrate the functionality of your project. For each of the rows below, follow the instructions to record a video. Please reference the [Screen Recording Guide](https://cs1230.graphics/docs/screen-recording/) for machine-specific guidance on how to do this. Once you've recorded everything, navigate to this file in Github, click edit, and either copy-paste or drag-and-drop each of your videos into the correct location. This will automatically embed the videos into the Markdown file! Make sure to double-check that they all show up properly in the preview.
+This is how you will demonstrate the functionality of your project.
+
+For each of the rows below, follow the instructions to record a video. Please reference the [Screen Recording Guide](https://cs1230.graphics/docs/screen-recording/) for machine-specific guidance on how to do this.
+
+Once you've recorded everything, navigate to this file in Github, click edit, and either select or drag-and-drop each of your videos into the correct location. This will upload them to GitHub (but not include them in the repo) and automatically embed them into this Markdown file by providing a link. Make sure to double-check that they all show up properly in the preview.
 
 We're **not** looking for your video to **exactly** match the expected output (i.e. draw the exact same shape). Just make sure to follow the instructions and verify that the recording fully demonstrates the functionality of that part of your project.
 
