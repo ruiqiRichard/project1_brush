@@ -3,20 +3,159 @@
 Please fill this out for Brush only. The project handout can be found [here](https://cs1230.graphics/projects/raster/1).
 
 ## Output Comparison
-This is how you will demonstrate the functionality of your project. For each of the rows below, follow the instructions to record a video in mp4 format. Please reference the [Screen Recording Guide](https://cs1230.graphics/docs/screen-recording/) for machine-specific guidance on how to do this. Then, rename the recording to the indicated name in column 3 and place it in the indicated folder so that it will show up in the README. We're **not** looking for your video to **exactly** match the expected output (i.e. draw the exact same shape). Just make sure to follow the instructions and verify that the recording fully demonstrates the functionality of that part of your project.
+This is how you will demonstrate the functionality of your project. For each of the rows below, follow the instructions to record a video. Please reference the [Screen Recording Guide](https://cs1230.graphics/docs/screen-recording/) for machine-specific guidance on how to do this. Once you've recorded everything, navigate to this file in Github, click edit, and either copy-paste or drag-and-drop each of your videos into the correct location. This will automatically embed the videos into the Markdown file! Make sure to double-check that they all show up properly in the preview.
 
-| Category | Expected Output | Your Output | Instructions |
-| :------------------------: | :--------------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------: | 
-| Constant Brush |  ![expected_outputs/brush/constant.mp4](expected_outputs/brush/constant.mp4) | ![Place constant.mp4 in student_outputs/brush](student_outputs/brush/constant.mp4) | Draw with the constant brush. |
-| Linear Brush |  ![expected_outputs/brush/linear.mp4](expected_outputs/brush/linear.mp4) | ![Place linear.mp4 in student_outputs/brush](student_outputs/brush/linear.mp4) | Draw with the linear brush. |
-| Quadratic Brush |  ![expected_outputs/brush/quadratic.mp4](expected_outputs/brush/quadratic.mp4) | ![Place quadratic.mp4 in student_outputs/brush](student_outputs/brush/quadratic.mp4) | Draw with the quadratic brush. |
-| Smudge Brush |  ![expected_outputs/brush/smudge.mp4](expected_outputs/brush/smudge) | ![Place smudge.mp4 in student_outputsbrush](student_outputs/brush/smudge.mp4) | Draw some colors on the canvas and use the smudge brush to smear them together. |
-| Smudge Brush Change in Alpha |  ![expected_outputs/brush/smudge_change_in_alpha.mp4](expected_outputs/brush/smudge_change_in_alpha.mp4) | ![Place smudge_change_in_alpha.mp4 in student_outputs/brush](student_outputs/brush/smudge_change_in_alpha.mp4) | Draw some colors on the canvas. Use the smudge brush with varying alpha levels (use at least three) and demonstrate that the brush still works the same way each time. |
-| Radius |  ![expected_outputs/brush/radius.mp4](expected_outputs/brush/radius.mp4) | ![Place radius.mp4 in student_outputs/brush](student_outputs/texture_cube2.png) | Use any brush with at least 3 different values for the radius. |
-| Color |  ![expected_outputs/brush/color.mp4](expected_outputs/brush/color.mp4) | ![Place color.mp4 in student_outputs/brush](student_outputs/brush/color.mp4) | Use any brush to draw red (255, 0, 0), green (0, 255, 0), and blue (0, 0, 255). Also, draw with a different color where at least two of the red, green, and blue channels do not equal 0. |
-| Canvas Edge Behavior |  ![expected_outputs/brush/canvas_edge_behavior.mp4](expected_outputs/brush/canvas_edge_behavior.mp4) | ![Place canvas_edge_behavior.mp4 in student_outputs/brush](student_outputs/brush/canvas_edge_behavior.mp4) | With any brush, click **outside** of the canvas in a place where the radius of the brush would normally extend to a location on the canvas and ensure that no color is drawn. Then, start drawing on the canvas and drag your mouse off of the edge. |
-| Alpha | ![expected_outputs/brush/alpha.mp4](expected_outputs/brush/alpha.mp4) | ![Place alpha.mp4 in student_outputs/brush](student_outputs/brush/alpha.mp4) | With the constant brush, draw a single dot of red (255, 0, 0) with an alpha of 255. Then, draw over it with a single dot of blue (0, 0, 255) with an alpha of 100. You should get a purpleish color. |
-| Alpha of Zero | ![expected_outputs/brush/alpha_zero.mp4](expected_outputs/brush/alpha_zero.mp4) | ![Place alpha_zero.mp4 in student_outputs/brush](student_outputs/brush/alpha_zero.mp4) | Choose any brush and demonstrate that it will not draw if the alpha value is zero. |
+We're **not** looking for your video to **exactly** match the expected output (i.e. draw the exact same shape). Just make sure to follow the instructions and verify that the recording fully demonstrates the functionality of that part of your project.
+
+### Constant Brush
+**Instructions:** Draw with the constant brush.
+
+#### Expected Output
+
+https://github.com/BrownCSCI1230/projects_raster_template/assets/77859770/241d99b5-947a-407c-b454-410534520aad
+
+#### Your Output
+
+<!---
+Paste your output on top of this comment!
+-->
+
+
+
+### Linear Brush
+**Instructions:** Draw with the linear brush.
+
+#### Expected Output
+
+https://github.com/BrownCSCI1230/projects_raster_template/assets/77859770/9706fa04-7710-441f-b292-ab010e04dec6
+
+#### Your Output
+
+<!---
+Paste your output on top of this comment!
+-->
+
+
+
+### Quadratic Brush
+**Instructions:** Draw with the quadratic brush.
+
+#### Expected Output
+
+https://github.com/BrownCSCI1230/projects_raster_template/assets/77859770/c5df5c09-bfe0-4c05-a56e-14609772d675
+
+#### Your Output
+
+<!---
+Paste your output on top of this comment!
+-->
+
+
+
+### Smudge Brush
+**Instructions:** Draw some colors on the canvas and use the smudge brush to smear them together.
+
+#### Expected Output
+
+https://github.com/BrownCSCI1230/projects_raster_template/assets/77859770/26440b63-2d1c-43fd-95f2-55b74ad3bbed
+
+#### Your Output
+
+<!---
+Paste your output on top of this comment!
+-->
+
+
+
+### Smudge Brush Change in Alpha
+**Instructions:** Draw some colors on the canvas. Use the smudge brush with varying alpha levels (use at least three) and demonstrate that the brush still works the same way each time.
+
+#### Expected Output
+
+https://github.com/BrownCSCI1230/projects_raster_template/assets/77859770/0b49c7d0-47ca-46d0-af72-48b831dfe7ea
+
+#### Your Output
+
+<!---
+Paste your output on top of this comment!
+-->
+
+
+
+### Radius
+**Instructions:** Use any brush with at least 3 different values for the radius.
+
+#### Expected Output
+
+https://github.com/BrownCSCI1230/projects_raster_template/assets/77859770/6f619df6-80cd-4849-8831-6a5aade2a517
+
+#### Your Output
+
+<!---
+Paste your output on top of this comment!
+-->
+
+
+
+### Color
+**Instructions:** Use any brush to draw red (255, 0, 0), green (0, 255, 0), and blue (0, 0, 255).
+
+#### Expected Output
+
+https://github.com/BrownCSCI1230/projects_raster_template/assets/77859770/fd9578ca-e0af-433e-ac9e-b27db2ceebc9
+
+#### Your Output
+
+<!---
+Paste your output on top of this comment!
+-->
+
+
+
+### Canvas Edge Behavior
+**Instructions:** With any brush, click and draw on the canvas in a place where the mask intersects with the edge. Then, start drawing anywhere on the canvas and drag your mouse off of the edge.
+
+#### Expected Output
+
+https://github.com/BrownCSCI1230/projects_raster_template/assets/77859770/f5344248-fa5f-4c33-b6df-ff0a45011c7a
+
+#### Your Output
+
+<!---
+Paste your output on top of this comment!
+-->
+
+
+
+### Alpha
+**Instructions:** With the constant brush, draw a single dot of red (255, 0, 0) with an alpha of 255. Then, draw over it with a single dot of blue (0, 0, 255) with an alpha of 100. You should get a purpleish color.
+
+#### Expected Output
+
+https://github.com/BrownCSCI1230/projects_raster_template/assets/77859770/b13d312d-d6d4-4375-aeaa-96174065443b
+
+#### Your Output
+
+<!---
+Paste your output on top of this comment!
+-->
+
+
+
+### Alpha of Zero
+**Instructions:** Choose any brush and demonstrate that it will not draw if the alpha value is zero.
+
+#### Expected Output
+
+https://github.com/BrownCSCI1230/projects_raster_template/assets/77859770/8e48777e-8196-401e-9af6-871abe712146
+
+#### Your Output
+
+<!---
+Paste your output on top of this comment!
+-->
+
+
 
 ## Design Choices
 
