@@ -52,6 +52,24 @@ bool Canvas2D::loadImageFromFile(const QString &file) {
 }
 
 /**
+ * @brief Saves the current canvas image to the specified file path.
+ * @param file: file path to save image to
+ * @return True if successfully saves image, False otherwise.
+ */
+bool Canvas2D::saveImageToFile(const QString &file) {
+    QImage myImage = QImage(m_width, m_height, QImage::Format_RGBX8888);
+    for (int i = 0; i < m_data.size(); i++){
+        myImage.setPixelColor(i % m_width, i / m_width, QColor(m_data[i].r, m_data[i].g, m_data[i].b, m_data[i].a));
+    }
+    if (!myImage.save(file)) {
+        std::cout<<"Failed to save image"<<std::endl;
+        return false;
+    }
+    return true;
+}
+
+
+/**
  * @brief Get Canvas2D's image data and display this to the GUI
  */
 void Canvas2D::displayImage() {
