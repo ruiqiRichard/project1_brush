@@ -82,6 +82,9 @@ MainWindow::MainWindow()
     // clearing canvas
     addPushButton(brushLayout, "Clear canvas", &MainWindow::onClearButtonClick);
 
+    // save canvas as image
+    addPushButton(brushLayout, "Save Image", &MainWindow::onSaveButtonClick);
+
     // filters
     addHeading(filterLayout, "Filter");
     addRadioButton(filterLayout, "Edge detect", settings.filterType == FILTER_EDGE_DETECT,  [this]{ setFilterType(FILTER_EDGE_DETECT); });
@@ -118,6 +121,7 @@ MainWindow::MainWindow()
     addPushButton(filterLayout, "Load Image", &MainWindow::onUploadButtonClick);
     addPushButton(filterLayout, "Apply Filter", &MainWindow::onFilterButtonClick);
     addPushButton(filterLayout, "Revert Image", &MainWindow::onRevertButtonClick);
+    addPushButton(filterLayout, "Save Image", &MainWindow::onSaveButtonClick);
 }
 
 /**
@@ -258,4 +262,13 @@ void MainWindow::onUploadButtonClick() {
     m_canvas->loadImageFromFile(settings.imagePath);
 
     m_canvas->settingsChanged();
+}
+
+void MainWindow::onSaveButtonClick() {
+    // Get new image path selected by user
+    QString file = QFileDialog::getSaveFileName(this, tr("Save Image"), QDir::currentPath(), tr("Image Files (*.png *.jpg *.jpeg)"));
+    if (file.isEmpty()) { return; }
+
+    // Save image
+    m_canvas->saveImageToFile(file);
 }
