@@ -5,6 +5,8 @@
 #include <QMouseEvent>
 #include <array>
 #include "rgba.h"
+#include "brushmask.h"
+#include "settings.h"
 
 class Canvas2D : public QLabel {
     Q_OBJECT
@@ -50,6 +52,14 @@ private:
     }
 
     // TODO: add any member variables or functions you need
+    bool m_isDown;
+    void brush(int x, int y);
+    void smudge(int x, int y);
+    void pickUpPrevColors(int x, int y);
+    brushmask maskTemp;
+    std::vector<RGBA> prevColors;
+    RGBA brushColor{settings.brushColor.r,settings.brushColor.g,settings.brushColor.b, settings.brushColor.a};
+
 };
 
 #endif // CANVAS2D_H

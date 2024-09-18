@@ -33,6 +33,7 @@ add_executable(${PROJECT_NAME}
   settings.h
   canvas2d.h
   rgba.h
+  brushmask.h brushmask.cpp
 )
 
 # Specifies libraries to be linked (Qt components, glew, etc)
