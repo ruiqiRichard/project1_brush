@@ -55,10 +55,13 @@ private:
     bool m_isDown;
     void brush(int x, int y);
     void smudge(int x, int y);
-    void pickUpPrevColors(int x, int y);
-    brushmask maskTemp;
-    std::vector<RGBA> prevColors;
-    RGBA brushColor{settings.brushColor.r,settings.brushColor.g,settings.brushColor.b, settings.brushColor.a};
+    void pickUpPrevColors(int x, int y); //pick up colors for smudge
+
+    brushmask maskTemp; // for accessing helper functions
+
+    RGBA brushColor{settings.brushColor.r,settings.brushColor.g,settings.brushColor.b, settings.brushColor.a}; // getting current brush color
+    std::vector<RGBA> prevColors;  // for smudge
+    std::vector<RGBA> maxBlending; // for fixing alpha blending
 
 };
 

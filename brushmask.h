@@ -7,7 +7,7 @@ class brushmask
 {
 public:
     brushmask();
-    brushmask(int r, int type);
+    brushmask(int r, int type, int density);
     std::vector<float> m_opacity;
     int get_x(int index);
     int get_y(int index);
@@ -19,6 +19,7 @@ public:
 private:
     int radius;
     int brushtype;
+    int spray_density;
 };
 
 #endif // BRUSHMASK_H

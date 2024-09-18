@@ -123,6 +123,16 @@ void Canvas2D::settingsChanged() {
 void Canvas2D::mouseDown(int x, int y) {
     m_isDown = true;
     if (x > -1 && x < m_width && y > -1 && y < m_height) {
+        if (settings.fixAlphaBlending) {
+            for (auto i : m_data) {
+                RGBA maxColor = {(uint8_t)(1 * (brushColor.a / 255.0) * brushColor.r + i.r * (1 - 1 * (brushColor.a / 255.0)) + 0.5),
+                                 (uint8_t)(1 * (brushColor.a / 255.0) * brushColor.g + i.g * (1 - 1 * (brushColor.a / 255.0)) + 0.5),
+                                 (uint8_t)(1 * (brushColor.a / 255.0) * brushColor.b + i.b * (1 - 1 * (brushColor.a / 255.0)) + 0.5),
+                                 (uint8_t)(brushColor.a)};
+                maxBlending.push_back(maxColor);
+            }
+
+        }
         if (settings.brushType == BRUSH_SMUDGE){
             pickUpPrevColors(x,y);
         }
@@ -150,28 +160,42 @@ void Canvas2D::mouseDragged(int x, int y) {
 
 void Canvas2D::mouseUp(int x, int y) {
     prevColors.clear();
+    maxBlending.clear();
     m_isDown = false;
 }
 
 void Canvas2D::brush(int x, int y) {
-    brushmask mask(settings.brushRadius,settings.brushType);
+    brushmask mask(settings.brushRadius,settings.brushType, settings.brushDensity);
     for (int i=0; i < mask.m_opacity.size(); i++) {
         int delta_x = mask.get_x(i) - mask.getRadius();
         int delta_y = mask.get_y(i) - mask.getRadius();
+        int index = (delta_x + x) + (delta_y + y) * m_width;
 
-        if (delta_x + x > -1 && delta_x + x < m_width && delta_y + y > -1 && delta_y + y < m_height) {
-            int index = (delta_x + x) + (delta_y + y) * m_width;
-            m_data[index] = RGBA{(uint8_t)(mask.m_opacity[i] * (brushColor.a / 255.0) * brushColor.r + m_data[index].r * (1-mask.m_opacity[i] * (brushColor.a / 255.0)) + 0.5),
-                                 (uint8_t)(mask.m_opacity[i] * (brushColor.a / 255.0) * brushColor.g + m_data[index].g * (1-mask.m_opacity[i] * (brushColor.a / 255.0)) + 0.5),
-                                 (uint8_t)(mask.m_opacity[i] * (brushColor.a / 255.0) * brushColor.b + m_data[index].b * (1-mask.m_opacity[i] * (brushColor.a / 255.0)) + 0.5),
-                                 (uint8_t)(brushColor.a)};
+        // fix alpha blending
+        if (settings.fixAlphaBlending) {
+            if (delta_x + x > -1 && delta_x + x < m_width && delta_y + y > -1 && delta_y + y < m_height) {
+                m_data[index] = RGBA{std::max((uint8_t)(mask.m_opacity[i] * (brushColor.a / 255.0) * brushColor.r + m_data[index].r * (1-mask.m_opacity[i] * (brushColor.a / 255.0)) + 0.5), maxBlending[index].r),
+                                     std::max((uint8_t)(mask.m_opacity[i] * (brushColor.a / 255.0) * brushColor.g + m_data[index].g * (1-mask.m_opacity[i] * (brushColor.a / 255.0)) + 0.5), maxBlending[index].g),
+                                     std::max((uint8_t)(mask.m_opacity[i] * (brushColor.a / 255.0) * brushColor.b + m_data[index].b * (1-mask.m_opacity[i] * (brushColor.a / 255.0)) + 0.5), maxBlending[index].g),
+                                     (uint8_t)(brushColor.a)};
+            }
         }
+        else {
+            if (delta_x + x > -1 && delta_x + x < m_width && delta_y + y > -1 && delta_y + y < m_height) {
+                m_data[index] = RGBA{(uint8_t)(mask.m_opacity[i] * (brushColor.a / 255.0) * brushColor.r + m_data[index].r * (1-mask.m_opacity[i] * (brushColor.a / 255.0)) + 0.5),
+                                     (uint8_t)(mask.m_opacity[i] * (brushColor.a / 255.0) * brushColor.g + m_data[index].g * (1-mask.m_opacity[i] * (brushColor.a / 255.0)) + 0.5),
+                                     (uint8_t)(mask.m_opacity[i] * (brushColor.a / 255.0) * brushColor.b + m_data[index].b * (1-mask.m_opacity[i] * (brushColor.a / 255.0)) + 0.5),
+                                     (uint8_t)(brushColor.a)};
+            }
+        }
+
+
 
     }
 }
 
 void Canvas2D::smudge(int x, int y) {
-    brushmask mask(settings.brushRadius,settings.brushType);
+    brushmask mask(settings.brushRadius,settings.brushType, settings.brushDensity);
     for (int i=0; i < mask.m_opacity.size(); i++) {
         int delta_x = mask.get_x(i) - mask.getRadius();
         int delta_y = mask.get_y(i) - mask.getRadius();

@@ -9,14 +9,14 @@ brushmask::brushmask() {
     std::cout << radius << std::endl;
 }
 
-brushmask::brushmask(int r, int type) {
+brushmask::brushmask(int r, int type, int density) {
     radius = r;
     brushtype = type;
+    spray_density = density;
     float A = 1.0 / (radius*radius);
     float B = -2.0 / radius;
     switch (brushtype) {
     case BRUSH_CONSTANT:
-        // std::cout << "constant brush" << std::endl;
         for (int i=0; i < std::pow(2*r+1,2); i++) {
             int x = get_x(i);
             int y = get_y(i);
@@ -67,7 +67,17 @@ brushmask::brushmask(int r, int type) {
         break;
 
     case BRUSH_SPRAY:
-
+        for (int i=0; i < std::pow(2*r+1,2); i++) {
+            int x = get_x(i);
+            int y = get_y(i);
+            if (getDistance(x,y) <= r & (std::rand() % 100) < spray_density) {
+                m_opacity.push_back(1.0);
+            }
+            else {
+                m_opacity.push_back(0.0);
+            }
+        }
+        break;
     }
 
 
