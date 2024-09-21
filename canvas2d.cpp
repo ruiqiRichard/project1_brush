@@ -114,8 +114,8 @@ void Canvas2D::settingsChanged() {
     brushColor.g = settings.brushColor.g;
     brushColor.b = settings.brushColor.b;
     brushColor.a = settings.brushColor.a;
-    mask.changeRadius(settings.brushRadius);
-    mask.changeType(settings.brushType);
+    tempMask.changeRadius(settings.brushRadius);
+    tempMask.changeType(settings.brushType);
 }
 
 /**
@@ -139,9 +139,9 @@ void Canvas2D::mouseDown(int x, int y) {
         if (settings.brushType == BRUSH_FILL) {
             int index = y * m_width + x;
             RGBA fillin{(uint8_t)((brushColor.a / 255.0) * brushColor.r + m_data[index].r * (1-1 * (brushColor.a / 255.0)) + 0.5),
-                               (uint8_t)((brushColor.a / 255.0) * brushColor.g + m_data[index].g * (1-1 * (brushColor.a / 255.0)) + 0.5),
-                               (uint8_t)((brushColor.a / 255.0) * brushColor.b + m_data[index].b * (1-1 * (brushColor.a / 255.0)) + 0.5),
-                               (uint8_t)(brushColor.a)};
+                        (uint8_t)((brushColor.a / 255.0) * brushColor.g + m_data[index].g * (1-1 * (brushColor.a / 255.0)) + 0.5),
+                        (uint8_t)((brushColor.a / 255.0) * brushColor.b + m_data[index].b * (1-1 * (brushColor.a / 255.0)) + 0.5),
+                        (uint8_t)(brushColor.a)};
             fill(m_data[index], x, y, fillin);
 
         }
@@ -158,18 +158,16 @@ void Canvas2D::mouseDown(int x, int y) {
 }
 
 void Canvas2D::mouseDragged(int x, int y) {
-    if (x > -1 && x < m_width && y > -1 && y < m_height && m_isDown) {
+    if (m_isDown) {
         if (settings.brushType == BRUSH_SMUDGE){
             smudge(x,y);
+            pickUpPrevColors(x,y);
         }
         else {
             if (settings.brushRadius != 0) {
                 brush(x,y);
             }
-
         }
-
-
     }
     displayImage();
 
@@ -219,19 +217,21 @@ void Canvas2D::smudge(int x, int y) {
         int index = (delta_x + x) + (delta_y + y) * m_width;
 
         if (delta_x + x > -1 && delta_x + x < m_width && delta_y + y > -1 && delta_y + y < m_height) {
-            m_data[index] = RGBA{(uint8_t)((mask.m_opacity[i] * (prevColors[i].a / 255.0) * prevColors[i].r) + (1-mask.m_opacity[i] * (prevColors[i].a / 255.0)) * m_data[index].r + 0.5),
-                                 (uint8_t)((mask.m_opacity[i] * (prevColors[i].a / 255.0) * prevColors[i].g) + (1-mask.m_opacity[i] * (prevColors[i].a / 255.0)) * m_data[index].g + 0.5),
-                                 (uint8_t)((mask.m_opacity[i] * (prevColors[i].a / 255.0) * prevColors[i].b) + (1-mask.m_opacity[i] * (prevColors[i].a / 255.0)) * m_data[index].b + 0.5),
-                                 (uint8_t)(prevColors[i].a)};
+            if (prevColors[i].a) {
+                m_data[index] = RGBA{(uint8_t)((mask.m_opacity[i] * prevColors[i].r) + (1-mask.m_opacity[i]) * m_data[index].r + 0.5),
+                                     (uint8_t)((mask.m_opacity[i] * prevColors[i].g) + (1-mask.m_opacity[i]) * m_data[index].g + 0.5),
+                                     (uint8_t)((mask.m_opacity[i] * prevColors[i].b) + (1-mask.m_opacity[i]) * m_data[index].b + 0.5),
+                                     (uint8_t)(prevColors[i].a)};
+            }
         }
 
     }
     prevColors.clear();
-    pickUpPrevColors(x,y);
 
 }
 
 void Canvas2D::pickUpPrevColors(int x, int y) {
+    brushmask mask(settings.brushRadius,settings.brushType, settings.brushDensity);
     for (int i=0; i < std::pow(2*settings.brushRadius+1,2); i++) {
         int delta_x = mask.get_x(i) - settings.brushRadius;
         int delta_y = mask.get_y(i) - settings.brushRadius;

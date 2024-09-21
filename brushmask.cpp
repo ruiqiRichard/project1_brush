@@ -56,13 +56,7 @@ brushmask::brushmask(int r, int type, int density) {
         for (int i=0; i < std::pow(2*r+1,2); i++) {
             int x = get_x(i);
             int y = get_y(i);
-            if (getDistance(x,y) > radius){
-                m_opacity.push_back(0.0);
-            }
-            else
-            {
-                m_opacity.push_back(std::max(A * std::pow(getDistance(x,y),2) + B * getDistance(x,y) + 1.0, 0.0));
-            }
+            m_opacity.push_back(std::max(1.0-getDistance(x,y)/radius,0.0));
         }
         break;
 
