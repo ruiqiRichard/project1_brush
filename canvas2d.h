@@ -56,8 +56,9 @@ private:
     void brush(int x, int y);
     void smudge(int x, int y);
     void pickUpPrevColors(int x, int y); //pick up colors for smudge
+    void fill(RGBA currentColor, int x, int y, RGBA color);
 
-    brushmask maskTemp; // for accessing helper functions
+    brushmask mask; // for accessing helper functions
 
     RGBA brushColor{settings.brushColor.r,settings.brushColor.g,settings.brushColor.b, settings.brushColor.a}; // getting current brush color
     std::vector<RGBA> prevColors;  // for smudge

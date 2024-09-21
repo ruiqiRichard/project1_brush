@@ -6,7 +6,7 @@
 brushmask::brushmask() {
     radius = settings.brushRadius;
     brushtype = settings.brushType;
-    std::cout << radius << std::endl;
+    // std::cout << radius << std::endl;
 }
 
 brushmask::brushmask(int r, int type, int density) {
