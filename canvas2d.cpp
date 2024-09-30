@@ -99,6 +99,19 @@ void Canvas2D::resize(int w, int h) {
  */
 void Canvas2D::filterImage() {
     // Filter TODO: apply the currently selected filter to the loaded image
+    switch (settings.filterType)
+    {
+    case FILTER_BLUR:
+        blur(settings.blurRadius);
+        break;
+    case FILTER_EDGE_DETECT:
+        filterGray();
+        edgeDetect();
+        break;
+    default:
+        break;
+    }
+    displayImage();
 }
 
 /**

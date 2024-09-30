@@ -64,6 +64,11 @@ private:
     std::vector<RGBA> prevColors;  // for smudge
     std::vector<RGBA> maxBlending; // for fixing alpha blending
 
+    //filters
+    void edgeDetect();
+    void blur(int radius);
+    void filterGray();
+
 };
 
 #endif // CANVAS2D_H

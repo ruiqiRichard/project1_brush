@@ -28,12 +28,17 @@ add_executable(${PROJECT_NAME}
   mainwindow.cpp
   settings.cpp
   canvas2d.cpp
+  filters/filterutils.cpp
+  filters/filterblur.cpp
+  filters/filteredge.cpp
+  filters/filtergray.cpp
 
   mainwindow.h
   settings.h
   canvas2d.h
   rgba.h
   brushmask.h brushmask.cpp
+  filters/filterutils.h
 )
 
 # Specifies libraries to be linked (Qt components, glew, etc)
