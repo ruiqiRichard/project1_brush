@@ -1,6 +1,5 @@
 #include "canvas2d.h"
 #include "filterutils.h"
-#include "iostream"
 
 std::vector<float> createBlurKernel(int radius) {
     // Gaussian kernel

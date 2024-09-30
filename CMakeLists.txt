@@ -32,6 +32,7 @@ add_executable(${PROJECT_NAME}
   filters/filterblur.cpp
   filters/filteredge.cpp
   filters/filtergray.cpp
+  filters/filterscale.cpp
 
   mainwindow.h
   settings.h

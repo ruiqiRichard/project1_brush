@@ -102,11 +102,19 @@ void Canvas2D::filterImage() {
     switch (settings.filterType)
     {
     case FILTER_BLUR:
-        blur(settings.blurRadius);
+        if (settings.blurRadius > 0) {
+            blur(settings.blurRadius);
+        }
         break;
     case FILTER_EDGE_DETECT:
         filterGray();
         edgeDetect();
+        break;
+    case FILTER_SCALE:
+        if (settings.scaleX > 0 && settings.scaleY > 0) {
+            filterScale(settings.scaleX, settings.scaleY);
+        }
+
         break;
     default:
         break;

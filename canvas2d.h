@@ -68,6 +68,7 @@ private:
     void edgeDetect();
     void blur(int radius);
     void filterGray();
+    void filterScale(float scaleX, float scaleY);
 
 };
 
