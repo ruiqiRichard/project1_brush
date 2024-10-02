@@ -37,8 +37,10 @@ We provide the functionality for saving the canvas of your running Filter progra
 ## Extra Credit
 Rotation by any angle
 
-![Place andy_2.png in student_outputs folder](student_outputs/mona_lisa_4.png)
+![Mona Lisa with Rotation of 69 degrees](student_outputs/mona_lisa_4.png)
+
 *Mona Lisa with Rotation of 69 degrees*
 
-![Place andy_2.png in student_outputs folder](student_outputs/mona_lisa_5.png)
+![Mona Lisa with Rotation of 142 degrees](student_outputs/mona_lisa_5.png)
+
 *Mona Lisa with Rotation of 142 degrees*
