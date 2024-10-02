@@ -69,6 +69,9 @@ private:
     void blur(int radius);
     void filterGray();
     void filterScale(float scaleX, float scaleY);
+    void rotate(float angle);
+    int original_width;
+    int original_height;
 
 };
 

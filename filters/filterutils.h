@@ -5,6 +5,7 @@
 namespace FilterUtils {
 
 std::uint8_t floatToUint8(float x);
+RGBA getPixelRepeated(std::vector<RGBA> &data, int width, int height, int x, int y);
 
 void convolve2D(std::vector<RGBA>& data,
                 int width,

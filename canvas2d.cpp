@@ -42,6 +42,8 @@ bool Canvas2D::loadImageFromFile(const QString &file) {
     myImage = myImage.convertToFormat(QImage::Format_RGBX8888);
     m_width = myImage.width();
     m_height = myImage.height();
+    original_height = m_height;
+    original_width = m_width;
     QByteArray arr = QByteArray::fromRawData((const char*) myImage.bits(), myImage.sizeInBytes());
 
     m_data.clear();
@@ -114,7 +116,9 @@ void Canvas2D::filterImage() {
         if (settings.scaleX > 0 && settings.scaleY > 0) {
             filterScale(settings.scaleX, settings.scaleY);
         }
-
+        break;
+    case FILTER_ROTATION:
+        rotate(settings.rotationAngle);
         break;
     default:
         break;

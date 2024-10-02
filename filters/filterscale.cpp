@@ -1,6 +1,5 @@
 #include "canvas2d.h"
 #include "filterutils.h"
-#include "iostream"
 
 RGBA getPixelRepeated(std::vector<RGBA> &data, int width, int height, int x, int y) {
     int newX = (x < 0) ? 0 : std::min(x, width  - 1);

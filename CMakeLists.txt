@@ -33,6 +33,7 @@ add_executable(${PROJECT_NAME}
   filters/filteredge.cpp
   filters/filtergray.cpp
   filters/filterscale.cpp
+  filters/filterrotate.cpp
 
   mainwindow.h
   settings.h
